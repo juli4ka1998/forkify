@@ -8,9 +8,8 @@ export default class Recipe {
 	async getRecipe() {
 		try {
 			const res = await axios(`${proxy}https://www.food2fork.com/api/get?key=${key}&rId=${this.id}`);
-			console.log(res);
 			this.title = res.data.recipe.title;
-			this.autor = res.data.recipe.publisher;
+			this.author = res.data.recipe.publisher;
 			this.img = res.data.recipe.image_url;
 			this.url = res.data.recipe.source_url;
 			this.ingredients = res.data.recipe.ingredients;
@@ -26,7 +25,7 @@ export default class Recipe {
 		this.time = periods * 15;
 	}
 
-	calcSrvings() {
+	calcServings() {
 		this.servings = 4;
 	}
 
